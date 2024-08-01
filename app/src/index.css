@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-yellow {
+  background-color: #F0A927;
+}
+
+.yellow-text {
+  color: #F0A927;
+}
+
+/* / width / */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* / Track / */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey;  */
+  border-radius: 0px;
+  background-color:#101729; 
+}
+ 
+/* / Handle / */
+::-webkit-scrollbar-thumb {
+  background: #565D6D; 
+  border-radius: 0px;
+}
+
+/* / Handle on hover / */
+.custom-hover-outline:hover {
+  outline: 2px solid #F0A927;
+  outline-offset: 1px; /* Adjust as needed */
+}
+
+.svg-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/images/glob.svg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;  /* Set the opacity of the background image */
+  z-index: 1;  /* Place the pseudo-element behind the content */
+}
+
+.custom-lines {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    border-left: 1px solid #4F608C;
+    height: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    border-left: 1px solid #4F608C;
+    height: 100%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.custom-progress[value]::-webkit-progress-bar {
+  background-color: #48516B;
+  border-radius: 5px;
+}
+
+.custom-progress[value]::-webkit-progress-value {
+  background-color: #F0A927;
+  border-radius: 5px;
+}
