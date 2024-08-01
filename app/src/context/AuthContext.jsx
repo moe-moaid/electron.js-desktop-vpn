@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const user = isLoggedIn();
     setUser(user);
-    console.log(user);
   }, []);
 
   const isLoggedIn = () => {
@@ -32,9 +31,8 @@ export const AuthProvider = ({ children }) => {
     try {
       var response = await api.get("/user-data");
       const user_info = response.data.data;
-      console.log('user_info:: ', user_info);
+      console.log("user_info:: ", user_info);
       if (response.data.code === 200) {
-        console.log('correct condition');
         const user = {
           name: user_info.name,
           email: user_info.email,
@@ -43,7 +41,6 @@ export const AuthProvider = ({ children }) => {
           package_name: user_info.user_package.package.name,
           package_price: user_info.user_package.package.price,
         };
-        console.log('user:: ', user);
         return { status: true, user: user };
       } else {
         return {
@@ -111,7 +108,6 @@ export const AuthProvider = ({ children }) => {
   const signupUser = async (formData) => {
     try {
       var response = await api.post("/register", formData);
-      console.log(response);
       if (response.data.code === 200) {
         return { status: true, message: response.data.message };
       } else if (response.data.code === 400) {
@@ -133,7 +129,6 @@ export const AuthProvider = ({ children }) => {
   const verifyOtp = async (formData) => {
     try {
       var response = await api.post("/verify-otp", formData);
-      console.log(typeof response.data.code);
       if (response.data.code === 200) {
         return { status: true, message: response.data.message };
       } else if (response.data.code === 409) {
@@ -155,6 +150,7 @@ export const AuthProvider = ({ children }) => {
 
   const logoutUser = () => {
     localStorage.removeItem("p-vpnToken");
+    localStorage.removeItem("user");
     setUser(null);
     setMessage({ type: "success", text: "Logout successful!" });
   };

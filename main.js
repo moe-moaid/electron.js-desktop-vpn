@@ -151,7 +151,7 @@ function createMainWindow() {
   });
 
   // mainWindow.webContents.openDevTools();
-  mainWindow.loadURL("http://localhost:3000");
+  mainWindow.loadURL("http://localhost:3001");
   // mainWindow.loadURL(startUrl);
 
   mainWindow.once("ready-to-show", () => {

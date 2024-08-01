@@ -24,8 +24,6 @@ export default function Home() {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  const myTestServers = servers?.servers[0].list;
-  console.log(myTestServers);
   
   const connectingAnime = {
     loop: true,

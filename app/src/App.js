@@ -53,10 +53,6 @@ function App() {
     }
   }
 
-  console.log(servers);
-
-
-
   useEffect(() => {
     const fetchServers = async () => {
       const serversData = await getServers();
